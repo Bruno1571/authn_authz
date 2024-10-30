@@ -126,3 +126,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'  # La URL a la que se redirige a los usuarios no autenticados
 LOGIN_REDIRECT_URL = 'home'  # La URL a la que se redirige tras iniciar sesión
 LOGOUT_REDIRECT_URL = 'login'  # La URL a la que se redirige tras cerrar sesión
+
+SESSION_COOKIE_AGE = 1800 # 30 minutos
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True 
+SESSION_COOKIE_SECURE = True  # Asegurar que las cookies de sesión se envíen solo a través de HTTPS
+CSRF_COOKIE_SECURE = True # Asegurar que la cookie CSRF se envíe solo a través de HTTPS
