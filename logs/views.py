@@ -19,4 +19,5 @@ def register(request):
     else:
         form = UserCreationForm()  # Inicializa el formulario si la solicitud es GET
 
-    return render(request, "register.html", {"form": form})  # Renderiza la plantilla con el formulario
+    return render(request, "registration/register.html", {"form": form})  # Renderiza la plantilla con el formulario
+
