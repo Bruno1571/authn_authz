@@ -1,7 +1,7 @@
 # Proyecto de Autorización y Autenticación
 Es una aplicación simple para verificar cómo funciona el sistema de autorización y autenticación en Django.
 Hace uso del modelo de usuario proporcionado por defecto para registrar usuarios, los cuales se les asignan roles como "Administrador", "Editor" y "Creador". 
-Estos roles cuentan con permisos específicos para cada grupo, como `add_task`, `change_task`, `delete_task`, entre otros.
+Estos roles cuentan con permisos específicos para cada grupo, como `add_post`, `change_post`, `delete_post`, entre otros.
 
 ## Instalación
 1. Clonar el repositorio.
@@ -27,10 +27,25 @@ Estos roles cuentan con permisos específicos para cada grupo, como `add_task`, 
    python manage.py migrate
 
 ## Método de uso
+1. Activar y entrar al servidor. 
   Para utiizar este programa, lo primero que hay que hacer es activar el proyecto mediante el comando python manage.py runserver.
   Esto hará que se ejecute en el navegador a través de la IP local: http://127.0.0.1:8000/
-  También puede ser accederse directamente si se usa Control + Clic en el enlace que aparece al correr el servidor.
+  También puede accederse directamente si se usa Control + Clic en el enlace que aparece al correr el servidor.
 
+2. Registrarse e iniciar sesión.
+   Una vez se accede a la aplicación, hay que registrarse o iniciar sesión con un usuario ya existente, así que se debe completar con los datos solicitados según corresponda.
+   Para comprobar funcionalidades, hay usuarios previamente hechos con roles y permisos.
+   Usuario Admin Contraseña:
+   Usuario Editor Contraseña:
+   Usuario Creador Contraseña:
+
+4. Usar funcionalidades.
+   Se pueden crear tareas con descripciones, editar la descripción de las mismas o borrarlas desde la propia interfaz de la app al hacer clic en los botones correspondientes. 
+   Funciones según el rol:
+   Admin: Tiene todas las funciones sobre todos los post.
+   Editor: Tiene solo la función de change_post de todos los post.
+   Creador: Tiene todas las funciones solo en sus propios post.
+   Usuario predeterminado: Solo tiene view_post por lo que solo puede ver los posts, sin poder crear ni editar. 
 
 ## Backend
 Para este proyecto se utilizó el Backend de Base de Datos que viene por defecto al crear un proyecto en Django, el cual almacena las sesiones en una tabla llamada django_session. Este mismo es adecuado para la mayoría de los proyectos en sus primeras etapas y es una opción segura para la mayoría de los entornos de desarrollo y producción.
@@ -41,3 +56,6 @@ La protección CSRF (Cross-Site Request Forgery) es una medida de seguridad que 
 Django genera automáticamente un token CSRF único para cada sesión de usuario. Este token se almacena en una cookie en el navegador y se utiliza en formularios y solicitudes POST.
 Debe incluirse en todos los formularios HTML que envíen datos al servidor mediante el método POST mediante el uso de la etiqueta {% csrf_token %} dentro del formulario en las plantillas.
 Cuando el formulario se envía, se comprueba que el token enviado en el formulario coincida con el token almacenado en la cookie del navegador. Si coinciden, la solicitud se considera legítima y se procesa; si no coinciden, Django devuelve un error 403 (Forbidden), bloqueando la solicitud.
+
+Prueba de comprobación:
+Si se omite {% csrf_token %} en el formulario, saldrá un error 403 cuando se envíe el formulario, indicando que Django bloqueó la solicitud porque no encontró el token CSRF.
