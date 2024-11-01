@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Publicacion{% endblock %}
+
+{% block content %}
+    <h1>Crear Nueva Publicacion</h1>
+    
+    <form method="post" action="{% url 'crear_post' %}">
+        {% csrf_token %}
+        <div>
+            <label for="Titulo">Titulo:</label>
+            <input type="text" name="Titulo" id="Titulo" required>
+        </div>
+        <div>
+            <label for="Contenido">Contenido:</label>
+            <textarea name="Contenido" id="Contenido" rows="10" required></textarea>
+        </div>
+        <div>
+            <button type="submit">Crear Publicacion</button>
+        </div>
+    </form>
+{% endblock %}

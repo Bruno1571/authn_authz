@@ -1,11 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
-@login_required
-def home(request):
-    return render(request, 'home.html')
+from .models import Post 
 
 
 def register(request):
@@ -20,4 +17,58 @@ def register(request):
         form = UserCreationForm()  # Inicializa el formulario si la solicitud es GET
 
     return render(request, "registration/register.html", {"form": form})  # Renderiza la plantilla con el formulario
+
+
+@login_required
+def posts_create(request):
+    if request.method == 'POST':
+        title = request.POST['Titulo']
+        content = request.POST['Contenido']
+        post = Post(Titulo=title, Contenido=content, Autor=request.user)
+        post.save()
+        return redirect('home')  
+    return render(request, 'create.html')
+
+@login_required
+def home(request):
+    nombreAutor = request.GET.get('autor')
+    if nombreAutor:
+        user = User.objects.filter(username=nombreAutor).first()
+        if user:
+            posts = Post.objects.filter(Autor=user)
+        else:
+            posts = []
+    else:
+        posts = Post.objects.all()
+
+    return render(request, 'home.html', {'posts': posts, 'nombreAutor': nombreAutor})
+
+@login_required
+def posts_delete(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == 'POST':
+        post.delete()
+        return redirect('home')
+
+    return render(request, 'confirmar_eliminacion.html', {'post': post})
+
+@login_required
+def posts_edit(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+
+    if request.method == 'POST':
+        post.Titulo = request.POST.get('Titulo')  
+        post.Contenido = request.POST.get('Contenido') 
+        post.save()
+        return redirect('home')
+
+    return render(request, 'editarPublicacion.html', {'post': post})
+
+
+@login_required
+def posts_detail(request, post_id):
+    # Recupera el post usando el ID proporcionado. Si no se encuentra, se muestra un error 404.
+    post = get_object_or_404(Post, id=post_id)
+    return render(request, 'detallePublicaciones.html', {'post': post})
 

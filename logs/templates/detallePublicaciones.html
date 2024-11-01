@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Detalle de Publicación{% endblock %}
+
+{% block content %}
+
+    <h2><strong>Titulo: </strong>{{ post.Titulo }}</h2>
+    <p><strong>Autor:</strong> {{ post.Autor.username }}</p>
+    <p><strong>Fecha de Publicación:</strong> {{ post.Fecha_de_Publicacion|date:"d M Y H:i" }}</p>
+    <div>
+        <h2>Contenido:</h2>
+        <p>{{ post.Contenido }}</p>
+    </div>
+    <a href="{% url 'home' %}">Volver a la lista</a>
+    <br>
+    <br>
+    {% if request.user == post.Autor %}
+        <a href="{% url 'eliminar_post' post.id %}">Eliminar</a>
+        <br><br>
+        <a href="{% url 'editar_post' post.id %}">Editar</a>
+    {% endif %}
+
+
+{% endblock %}
