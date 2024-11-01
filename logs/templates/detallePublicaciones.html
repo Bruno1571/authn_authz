@@ -11,14 +11,15 @@
         <h2>Contenido:</h2>
         <p>{{ post.Contenido }}</p>
     </div>
-    <a href="{% url 'home' %}">Volver a la lista</a>
+    <a href="{% url 'home' %}">Volver a la pagina de inicio</a>
     <br>
     <br>
-    {% if request.user == post.Autor %}
+    {% if can_delete %}
         <a href="{% url 'eliminar_post' post.id %}">Eliminar</a>
         <br><br>
+    {% endif %}
+    {% if can_edit %}
         <a href="{% url 'editar_post' post.id %}">Editar</a>
     {% endif %}
-
 
 {% endblock %}
