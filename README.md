@@ -1,7 +1,7 @@
 # Proyecto de Autorización y Autenticación
 Es una aplicación simple para verificar cómo funciona el sistema de autorización y autenticación en Django.
 Hace uso del modelo de usuario proporcionado por defecto para registrar usuarios, los cuales se les asignan roles como "Administrador", "Editor", "Creador" y "Lector". 
-Estos roles cuentan con permisos específicos para cada grupo, como `agregar_publicacion`, `editar_publicacion`, `eliminar_publicacion` y `verr_publiacion`.
+Estos roles cuentan con permisos específicos para cada grupo, como `agregar_publicacion`, `editar_publicacion`, `eliminar_publicacion` y `ver_publicacion`.
 
 ## Instalación
 1. Clonar el repositorio.
