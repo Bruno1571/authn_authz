@@ -35,9 +35,9 @@ Estos roles cuentan con permisos específicos para cada grupo, como `agregar_pub
 2. Registrarse e iniciar sesión.
    Una vez se accede a la aplicación, hay que registrarse o iniciar sesión con un usuario ya existente, así que se debe completar con los datos solicitados según corresponda.
    Para comprobar funcionalidades, hay usuarios previamente hechos con roles y permisos.
-   Usuario Administrador Contraseña: cincuenta
-   Usuario Editor Contraseña: cincuenta
-   Usuario Creador Contraseña: cincuenta
+   Usuario: Administrador Contraseña: cincuenta
+   Usuario: Editor Contraseña: cincuenta
+   Usuario: Creador Contraseña: cincuenta
 
 4. Usar funcionalidades.
    Se pueden crear tareas con descripciones, editar la descripción/título de las mismas o borrarlas desde la propia interfaz de la app al hacer clic en los botones correspondientes. 
@@ -45,7 +45,7 @@ Estos roles cuentan con permisos específicos para cada grupo, como `agregar_pub
    Administrador: Tiene todas las funciones sobre todos los post.
    Editor: Tiene solo la función de `cambiar_publicacion` de todos los post.
    Creador: Únicamente tiene la función de `agregar_publicacion`. 
-   Lector/Usuario registrado: Solo cuenta con `ver_publiacion` por lo que nomás puede ver los posts, sin poder crear ni editar.
+   Lector/Usuario registrado: Solo cuenta con `ver_publicacion` por lo que nomás puede ver los posts, sin poder crear ni editar.
    Se realizó de este modo para que cada uno de los roles tuviera una función y así comprobar cómo se ocultan/muestran las mismas según el usuario que acceda.
 
 ## Backend
