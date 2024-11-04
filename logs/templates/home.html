@@ -37,7 +37,10 @@
     {% endif %}
 
     {% if can_create %}
-        <div><a href="{% url 'crear_post' %}">Crear post</a></div>
+        <div class="crear-post">
+            <a class="boton-crear" href="{% url 'crear_post' %}">Crear post</a>
+        </div>
     {% endif %}
+
 
 {% endblock %}

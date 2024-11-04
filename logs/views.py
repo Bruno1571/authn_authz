@@ -1,4 +1,3 @@
-from email.headerregistry import Group
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -6,8 +5,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login 
 from .models import Post 
 from django.contrib.auth.decorators import permission_required
-from django.contrib.auth.models import Permission, User
+from django.contrib.auth.models import Permission, User, Group
 from django.contrib.contenttypes.models import ContentType
+
 
 
 def register(request):

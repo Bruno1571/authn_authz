@@ -143,6 +143,24 @@ html{
         color: white; 
     }
 
+    
+    .crear-post {
+        text-align: center; 
+        margin: 20px 0; 
+    }
+
+    .boton-crear {
+        display: inline-block; 
+        padding: 10px 20px; 
+        background-color: #007bff; 
+        color: white; 
+        border-radius: 4px; 
+        text-decoration: none; 
+        font-size: 16px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+
+    }
+
     ul {
         list-style-type: none; 
         padding: 0; 
@@ -168,7 +186,6 @@ html{
         background-color: #ccc; 
     }
 /*FIN home*/
-
 
 /*Detalle publicacion*/
 
@@ -248,7 +265,7 @@ html{
         border-radius: 4px; 
     }
 
-    button {
+    .contenedor_login button {
         padding: 10px 15px; 
         background-color: #5cb85c; 
         color: white; 
@@ -256,5 +273,4 @@ html{
     }
 
 /*FIN LOGIN*/
-
 
