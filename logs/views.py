@@ -12,24 +12,23 @@ from django.contrib.contenttypes.models import ContentType
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
-        if form.is_valid():  # Verifica si el formulario es válido
-            user = form.save()  # Guarda el nuevo usuario y obtiene la instancia
+        if form.is_valid(): 
+            user = form.save()  
             username = form.cleaned_data.get("username")
-            messages.success(request, f"¡Cuenta creada para {username}!")  # Mensaje de éxito
+            messages.success(request, f"¡Cuenta creada para {username}!") 
             content_type = ContentType.objects.get(app_label='logs', model='post')
-            permiso = Permission.objects.get(codename='view_post', content_type=content_type)
-            user.user_permissions.add(permiso)  # Agrega el permiso view_post al usuario
-            # Inicia sesión automáticamente después de registrarse
-            login(request, user)  # Autentica y establece sesión
+            permiso = Permission.objects.get(codename='ver_publicacion', content_type=content_type)
+            user.user_permissions.add(permiso)  
+            login(request, user)  
 
-            return redirect("home")  # Redirecciona a la página de inicio
+            return redirect("home")  
     else:
-        form = UserCreationForm()  # Inicializa el formulario si la solicitud es GET
+        form = UserCreationForm()  
 
-    return render(request, "registration/register.html", {"form": form})  # Renderiza la plantilla con el formulario
+    return render(request, "registration/register.html", {"form": form})  
 
 @login_required 
-@permission_required('logs.add_post', raise_exception=True)
+@permission_required('logs.crear_publicacion', raise_exception=True)
 def posts_create(request):
     if request.method == 'POST':
         title = request.POST['Titulo']
@@ -40,7 +39,7 @@ def posts_create(request):
     return render(request, 'create.html')
 
 @login_required
-@permission_required('logs.view_post', raise_exception=True)
+@permission_required('logs.ver_publicacion', raise_exception=True)
 def home(request):
     nombreAutor = request.GET.get('autor')
     if nombreAutor:
@@ -51,11 +50,11 @@ def home(request):
             posts = []
     else:
         posts = Post.objects.all()
-    can_create = request.user.has_perm('logs.add_post')
+    can_create = request.user.has_perm('logs.crear_publicacion')
     return render(request, 'home.html', {'posts': posts, 'nombreAutor': nombreAutor, 'can_create': can_create})
 
 @login_required
-@permission_required('logs.delete_post', raise_exception=True)
+@permission_required('logs.eliminar_publicacion', raise_exception=True)
 def posts_delete(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
@@ -66,7 +65,7 @@ def posts_delete(request, post_id):
     return render(request, 'confirmar_eliminacion.html', {'post': post})
 
 @login_required
-@permission_required('logs.change_post', raise_exception=True)
+@permission_required('logs.editar_publicacion', raise_exception=True)
 def posts_edit(request, post_id):
     post = get_object_or_404(Post, id=post_id)
 
@@ -78,11 +77,10 @@ def posts_edit(request, post_id):
 
     return render(request, 'editarPublicacion.html', {'post': post})
 
-
 @login_required
-@permission_required('logs.view_post', raise_exception=True)
+@permission_required('logs.ver_publicacion', raise_exception=True)
 def posts_detail(request, post_id):
     post = get_object_or_404(Post, id=post_id)
-    can_delete = request.user.has_perm('logs.delete_post')
-    can_edit = request.user.has_perm('logs.change_post')
+    can_delete = request.user.has_perm('logs.eliminar_publicacion')
+    can_edit = request.user.has_perm('logs.editar_publicacion')
     return render(request, 'detallePublicaciones.html', {'post': post, 'can_delete': can_delete, 'can_edit': can_edit})
