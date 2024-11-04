@@ -5,9 +5,12 @@
             <div>
                 <ul>
                     {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'logout' %}">Cerrar sesión</a>
-                        </li>
+                    <li>
+                        <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-link nav-link" style="display:inline; padding:0;">Cerrar sesión</button>
+                        </form>
+                    </li>
                     {% else %}
                         <li>
                             <a href="{% url 'login' %}">Iniciar sesión</a>
