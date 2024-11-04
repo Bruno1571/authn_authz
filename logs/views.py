@@ -1,3 +1,4 @@
+from email.headerregistry import Group
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -12,20 +13,20 @@ from django.contrib.contenttypes.models import ContentType
 def register(request):
     if request.method == "POST":
         form = UserCreationForm(request.POST)
-        if form.is_valid(): 
-            user = form.save()  
+        if form.is_valid():
+            user = form.save()
             username = form.cleaned_data.get("username")
-            messages.success(request, f"¡Cuenta creada para {username}!") 
-            content_type = ContentType.objects.get(app_label='logs', model='post')
-            permiso = Permission.objects.get(codename='ver_publicacion', content_type=content_type)
-            user.user_permissions.add(permiso)  
-            login(request, user)  
+            messages.success(request, f"¡Cuenta creada para {username}!")
 
-            return redirect("home")  
+            grupo = Group.objects.get(name='Lector')  
+            user.groups.add(grupo) 
+
+            login(request, user)
+            return redirect("home")
     else:
-        form = UserCreationForm()  
+        form = UserCreationForm()
 
-    return render(request, "registration/register.html", {"form": form})  
+    return render(request, "registration/register.html", {"form": form})
 
 @login_required 
 @permission_required('logs.crear_publicacion', raise_exception=True)
