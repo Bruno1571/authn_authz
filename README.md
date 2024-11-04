@@ -35,17 +35,18 @@ Estos roles cuentan con permisos específicos para cada grupo, como `add_post`, 
 2. Registrarse e iniciar sesión.
    Una vez se accede a la aplicación, hay que registrarse o iniciar sesión con un usuario ya existente, así que se debe completar con los datos solicitados según corresponda.
    Para comprobar funcionalidades, hay usuarios previamente hechos con roles y permisos.
-   Usuario Admin Contraseña:
-   Usuario Editor Contraseña:
-   Usuario Creador Contraseña:
+   Usuario Administrador Contraseña: cincuenta
+   Usuario Editor Contraseña: cincuenta
+   Usuario Creador Contraseña: cincuenta
 
-4. Usar funcionalidades.
-   Se pueden crear tareas con descripciones, editar la descripción de las mismas o borrarlas desde la propia interfaz de la app al hacer clic en los botones correspondientes. 
+3. Usar funcionalidades.
+   Se pueden crear tareas con descripciones, editar la descripción/título de las mismas o borrarlas desde la propia interfaz de la app al hacer clic en los botones correspondientes. 
    Funciones según el rol:
-   Admin: Tiene todas las funciones sobre todos los post.
+   Administrador: Tiene todas las funciones sobre todos los post.
    Editor: Tiene solo la función de change_post de todos los post.
-   Creador: Tiene todas las funciones solo en sus propios post.
-   Usuario predeterminado: Solo tiene view_post por lo que solo puede ver los posts, sin poder crear ni editar. 
+   Creador: Únicamente tiene la función de add_post. 
+   Usuario predeterminado: Solo tiene view_post por lo que solo puede ver los posts, sin poder crear ni editar.
+   Se realizó de este modo para que cada uno de los roles tuviera una función y así comprobar cómo se ocultan/muestran las mismas según el usuario que acceda.
 
 ## Backend
 Para este proyecto se utilizó el Backend de Base de Datos que viene por defecto al crear un proyecto en Django, el cual almacena las sesiones en una tabla llamada django_session. Este mismo es adecuado para la mayoría de los proyectos en sus primeras etapas y es una opción segura para la mayoría de los entornos de desarrollo y producción.
