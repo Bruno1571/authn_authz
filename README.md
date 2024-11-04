@@ -1,7 +1,7 @@
 # Proyecto de Autorización y Autenticación
 Es una aplicación simple para verificar cómo funciona el sistema de autorización y autenticación en Django.
-Hace uso del modelo de usuario proporcionado por defecto para registrar usuarios, los cuales se les asignan roles como "Administrador", "Editor" y "Creador". 
-Estos roles cuentan con permisos específicos para cada grupo, como `add_post`, `change_post`, `delete_post`, entre otros.
+Hace uso del modelo de usuario proporcionado por defecto para registrar usuarios, los cuales se les asignan roles como "Administrador", "Editor", "Creador" y "Lector". 
+Estos roles cuentan con permisos específicos para cada grupo, como `agregar_publicacion`, `editar_publicacion`, `eliminar_publicacion` y `verr_publiacion`.
 
 ## Instalación
 1. Clonar el repositorio.
@@ -39,13 +39,13 @@ Estos roles cuentan con permisos específicos para cada grupo, como `add_post`, 
    Usuario Editor Contraseña: cincuenta
    Usuario Creador Contraseña: cincuenta
 
-3. Usar funcionalidades.
+4. Usar funcionalidades.
    Se pueden crear tareas con descripciones, editar la descripción/título de las mismas o borrarlas desde la propia interfaz de la app al hacer clic en los botones correspondientes. 
    Funciones según el rol:
    Administrador: Tiene todas las funciones sobre todos los post.
-   Editor: Tiene solo la función de change_post de todos los post.
-   Creador: Únicamente tiene la función de add_post. 
-   Usuario predeterminado: Solo tiene view_post por lo que solo puede ver los posts, sin poder crear ni editar.
+   Editor: Tiene solo la función de `cambiar_publicacion` de todos los post.
+   Creador: Únicamente tiene la función de `agregar_publicacion`. 
+   Lector/Usuario registrado: Solo cuenta con `ver_publiacion` por lo que nomás puede ver los posts, sin poder crear ni editar.
    Se realizó de este modo para que cada uno de los roles tuviera una función y así comprobar cómo se ocultan/muestran las mismas según el usuario que acceda.
 
 ## Backend
