@@ -58,5 +58,6 @@ Django genera automáticamente un token CSRF único para cada sesión de usuario
 Debe incluirse en todos los formularios HTML que envíen datos al servidor mediante el método POST mediante el uso de la etiqueta {% csrf_token %} dentro del formulario en las plantillas.
 Cuando el formulario se envía, se comprueba que el token enviado en el formulario coincida con el token almacenado en la cookie del navegador. Si coinciden, la solicitud se considera legítima y se procesa; si no coinciden, Django devuelve un error 403 (Forbidden), bloqueando la solicitud.
 
-Prueba de comprobación:
+Pruebas de comprobación:
 Si se omite {% csrf_token %} en el formulario, saldrá un error 403 cuando se envíe el formulario, indicando que Django bloqueó la solicitud porque no encontró el token CSRF.
+Si el token CSRF es eliminado, las solicitudes posteriores que intenten realizar acciones que requieren un token válido (como enviar formularios o solicitudes POST) serán rechazadas por el servidor. Esto se debe a que el servidor espera un token CSRF válido para verificar que la solicitud provenga de un usuario autenticado y no de un ataque CSRF. La próxima vez que se cargue una página o un formulario que incluya un token CSRF el servidor generará y enviará un nuevo token. Este se almacenará en las cookies nuevamente y se usará en las siguientes solicitudes.
