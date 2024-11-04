@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login 
 from .models import Post 
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.models import Permission, User
@@ -17,14 +18,15 @@ def register(request):
             messages.success(request, f"¡Cuenta creada para {username}!")  # Mensaje de éxito
             content_type = ContentType.objects.get(app_label='logs', model='post')
             permiso = Permission.objects.get(codename='view_post', content_type=content_type)
-            user.user_permissions.add(permiso)  # Agrega el permiso al usuario
+            user.user_permissions.add(permiso)  # Agrega el permiso view_post al usuario
+            # Inicia sesión automáticamente después de registrarse
+            login(request, user)  # Autentica y establece sesión
 
-            return redirect("login")  # Redirecciona a la página de inicio de sesión
+            return redirect("home")  # Redirecciona a la página de inicio
     else:
         form = UserCreationForm()  # Inicializa el formulario si la solicitud es GET
 
     return render(request, "registration/register.html", {"form": form})  # Renderiza la plantilla con el formulario
-
 
 @login_required 
 @permission_required('logs.add_post', raise_exception=True)
