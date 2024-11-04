@@ -1,22 +1,21 @@
-
-    <nav>
+<nav>
+    <div>
+        <a href="{% url 'home' %}">Mi Aplicación</a>
         <div>
-            <a href="{% url 'home' %}">Mi Aplicación</a>
-            <div>
-                <ul>
-                    {% if user.is_authenticated %}
-                        <li>
-                            <a href="{% url 'logout' %}">Cerrar sesión</a>
-                        </li>
-                    {% else %}
-                        <li>
-                            <a href="{% url 'login' %}">Iniciar sesión</a>
-                        </li>
-                        <li>
-                            <a href="{% url 'register' %}">Registrarse</a>
-                        </li>
-                    {% endif %}
-                </ul>
+            <div class="nav-options">
+                {% if user.is_authenticated %}
+                    <div>
+                        <a href="{% url 'logout' %}">Cerrar sesión</a>
+                    </div>
+                {% else %}
+                    <div>
+                        <a href="{% url 'login' %}">Iniciar sesión</a>
+                    </div>
+                    <div>
+                        <a href="{% url 'register' %}">Registrarse</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
-    </nav>
+    </div>
+</nav>

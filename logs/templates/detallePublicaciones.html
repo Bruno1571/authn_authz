@@ -4,22 +4,25 @@
 
 {% block content %}
 
-    <h2><strong>Titulo: </strong>{{ post.Titulo }}</h2>
-    <p><strong>Autor:</strong> {{ post.Autor.username }}</p>
-    <p><strong>Fecha de Publicación:</strong> {{ post.Fecha_de_Publicacion|date:"d M Y H:i" }}</p>
-    <div>
-        <h2>Contenido:</h2>
-        <p>{{ post.Contenido }}</p>
+    <div class="post_detalle">
+        <h2><strong>Título:</strong> {{ post.Titulo }}</h2>
+        <p><strong>Autor:</strong> {{ post.Autor.username }}</p>
+        <p><strong>Fecha de Publicación:</strong> {{ post.Fecha_de_Publicacion|date:"d M Y H:i" }}</p>
+        
+        <div class="post_contenido">
+            <h2>Contenido:</h2>
+            <p>{{ post.Contenido }}</p>
+        </div>
+        
+        <div class="enlaces">
+            <a href="{% url 'home' %}">Volver a la página de inicio</a>
+            {% if can_delete %}
+                <a href="{% url 'eliminar_post' post.id %}">Eliminar</a>
+            {% endif %}
+            {% if can_edit %}
+                <a href="{% url 'editar_post' post.id %}">Editar</a>
+            {% endif %}
+        </div>
     </div>
-    <a href="{% url 'home' %}">Volver a la pagina de inicio</a>
-    <br>
-    <br>
-    {% if can_delete %}
-        <a href="{% url 'eliminar_post' post.id %}">Eliminar</a>
-        <br><br>
-    {% endif %}
-    {% if can_edit %}
-        <a href="{% url 'editar_post' post.id %}">Editar</a>
-    {% endif %}
 
 {% endblock %}

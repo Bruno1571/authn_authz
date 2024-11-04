@@ -5,7 +5,7 @@
 {% block content %}
     <h1>Lista de Publicaciones</h1>
         
-    <!-- Formulario para filtrar por autor -->
+
     <form method="get" action="">
         <label for="autor">Filtrar por autor:</label>
         <input type="text" name="autor" id="autor" value="{{ nombreAutor|default:'' }}">
@@ -14,7 +14,7 @@
 
     <hr>
 
-    <!-- Mostrar la lista de publicaciones -->
+
     {% if posts %}
         <ul>
             {% for post in posts %}

@@ -131,3 +131,4 @@ SESSION_COOKIE_AGE = 1800 # 30 minutos
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True 
 SESSION_COOKIE_SECURE = True  # Asegurar que las cookies de sesión se envíen solo a través de HTTPS
 CSRF_COOKIE_SECURE = True # Asegurar que la cookie CSRF se envíe solo a través de HTTPS
+

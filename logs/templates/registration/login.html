@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div>
-    <h2>Iniciar sesión</h2>
-    <form method="post">
-        {% csrf_token %}
-        <div>
-            <label for="{{ form.username.id_for_label }}">Nombre de usuario</label>
-            <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}">
-        </div>
-        <div>
-            <label for="{{ form.password.id_for_label }}">Contraseña</label>
-            <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}">
-        </div>
-        <button type="submit">Iniciar sesión</button>
-    </form>
-</div>
+    <div class="contenedor_login">
+        <h2>Iniciar sesión</h2>
+        <form method="post">
+            {% csrf_token %}
+            <div class="campo_formulario">
+                <label for="{{ form.username.id_for_label }}">Nombre de usuario</label>
+                <input type="text" id="{{ form.username.id_for_label }}" name="{{ form.username.name }}">
+            </div>
+            <div class="campo_formulario">
+                <label for="{{ form.password.id_for_label }}">Contraseña</label>
+                <input type="password" id="{{ form.password.id_for_label }}" name="{{ form.password.name }}">
+            </div>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+    </div>
 {% endblock %}

@@ -3,16 +3,20 @@
 {% block title %}Editar Publicación{% endblock %}
 
 {% block content %}
-
-<form method="post" action="{% url 'editar_post' post.id %}">
-    {% csrf_token %}
-    <label for="Titulo">Título:</label>
-    <input type="text" name="Titulo" id="Titulo" required>
-
-    <label for="Contenido">Contenido:</label>
-    <textarea name="Contenido" id="Contenido" required></textarea>
-
-    <button type="submit">Actualizar</button>
-</form>
-
+<div class="contenedor_edicion">
+    <form method="post" action="{% url 'editar_post' post.id %}">
+        {% csrf_token %}
+        <div class="campo_formulario_edicion">
+            <label for="Titulo">Título:</label>
+            <input type="text" name="Titulo" id="Titulo" required value="{{ post.Titulo }}">
+        </div>
+        <div class="campo_formulario_edicion">
+            <label for="Contenido">Contenido:</label>
+            <textarea name="Contenido" id="Contenido" required>{{ post.Contenido }}</textarea>
+        </div>
+        <div class="campo_formulario_edicion">
+            <button type="submit">Actualizar</button>
+        </div>
+    </form>
+</div>
 {% endblock %}

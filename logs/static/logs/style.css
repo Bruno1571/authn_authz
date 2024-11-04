@@ -1,0 +1,259 @@
+html{
+    margin: 0;
+}
+
+
+/*NAV-BAR*/
+    nav {
+        background-color: #2c3e50; 
+        padding: 20px 30px; 
+    }
+
+    nav div {
+        display: flex; 
+        justify-content: space-between; 
+        align-items: center; 
+    }
+
+    nav a {
+        color: #ecf0f1; 
+        text-decoration: none; 
+        padding: 10px; 
+    }
+
+    .nav-options {
+        display: flex; 
+    }
+
+    .nav-options div {
+        margin-left: 15px; 
+    }
+
+
+/*FIN NAV-BAR*/
+
+/*EDITAR POST*/
+
+    .contenedor_edicion {
+        max-width: 500px; 
+        margin: 40px auto; 
+        padding: 20px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        background-color: #f9f9f9; 
+    }
+
+    .campo_formulario_edicion {
+        margin-bottom: 15px; 
+    }
+
+    .campo_formulario_edicion label {
+        display: block; 
+        margin-bottom: 5px; 
+        font-weight: bold; 
+    }
+
+    .campo_formulario_edicion input[type="text"], 
+    .campo_formulario_edicion textarea {
+        width: 100%; 
+        padding: 10px; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+    }
+
+    .campo_formulario_edicion button {
+        padding: 10px 15px; 
+        background-color: #3498db; 
+        color: white; 
+        border: none; 
+        border-radius: 5px; 
+    }
+
+/*FIN EDITAR POST*/
+
+/*CREAR POST*/
+.contenedor_creacion {
+    max-width: 500px; 
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    background-color: #f9f9f9; 
+}
+
+.campo_formulario {
+    margin-bottom: 15px;
+}
+
+.campo_formulario label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+}
+
+.campo_formulario input[type="text"], textarea {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+}
+
+.campo_formulario button {
+    padding: 10px 15px; 
+    background-color: #3498db; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+/*FIN CREAR POST*/
+
+/*HOME*/
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4; 
+    }
+
+    h1 {
+        text-align: center;
+        color: #333; 
+    }
+
+    form {
+        margin: 20px auto;
+        text-align: center; 
+    }
+
+    input[type="text"] {
+        padding: 10px;
+        width: 80%; 
+        max-width: 400px; 
+        border: 1px solid #ccc;
+        border-radius: 4px; 
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        background-color: #5cb85c; 
+        color: white; 
+    }
+
+    ul {
+        list-style-type: none; 
+        padding: 0; 
+    }
+
+    li {
+        background-color: white; 
+        margin: 10px auto; 
+        padding: 15px; 
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        max-width: 600px; 
+    }
+
+    a {
+        color: #007bff; 
+        text-decoration: none; 
+    }
+
+    hr {
+        border: 0;
+        height: 1px;
+        background-color: #ccc; 
+    }
+/*FIN home*/
+
+
+/*Detalle publicacion*/
+
+    .post_detalle {
+        max-width: 800px; 
+        margin: 20px auto; 
+        padding: 15px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        background-color: #f9f9f9; 
+    }
+
+    .post_contenido {
+        margin-top: 20px; 
+    }
+
+    .enlaces {
+        margin-top: 30px; 
+    }
+
+    .enlaces a {
+        display: inline-block; 
+        margin-right: 15px; 
+        text-decoration: none; 
+        color: #333; 
+    }
+
+/*FIN Detalle publicacion*/
+
+/*Confirmar eliminacion*/
+    .contenedor_confirmacion {
+        max-width: 400px; 
+        margin: 40px auto; 
+        padding: 15px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        background-color: #f9f9f9; 
+        text-align: center; 
+    }
+
+    .contenedor_confirmacion button {
+        padding: 10px 15px; 
+        background-color: #e74c3c;
+        border-radius: 5px; 
+    }
+
+    .enlace_cancelar a {
+        color: #2980b9; 
+        text-decoration: none; 
+    }
+
+/*FIN Confirmar eliminacion*/
+
+
+/* LOGIN*/
+    .contenedor_login {
+        max-width: 400px; 
+        margin: 40px auto; 
+        padding: 20px; 
+        border: 1px solid #ccc; 
+        border-radius: 5px; 
+        background-color: #f9f9f9; 
+    }
+
+    .campo_formulario {
+        margin-bottom: 15px; 
+    }
+
+    .contenedor_login label {
+        display: block; 
+        margin-bottom: 5px; 
+    }
+
+    .contenedor_login input {
+        padding: 10px; 
+        border: 1px solid #ccc; 
+        border-radius: 4px; 
+    }
+
+    button {
+        padding: 10px 15px; 
+        background-color: #5cb85c; 
+        color: white; 
+        border-radius: 5px; 
+    }
+
+/*FIN LOGIN*/
+
+

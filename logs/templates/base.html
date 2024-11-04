@@ -1,25 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Aplicación{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'logs/style.css' %}">
+
 </head>
 <body>
 
     {% include 'navbar.html' %}
-
-    <div>
-        {% if messages %}
-            {% for message in messages %}
-                <div>
-                    {{ message }}
-                </div>
-            {% endfor %}
-        {% endif %}
-    </div>
-
-    <!-- Contenido principal -->
     <div>
         {% block content %}{% endblock %}
     </div>
